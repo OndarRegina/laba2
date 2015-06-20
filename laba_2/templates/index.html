@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+        <div class="container">
+            <h1 style="text-align:center;">Лабораторная работа 2</h1>
+
+            <h2>Курьеры</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Фамилия</th>
+                  <th>Имя</th>
+                  <th>Отчество</th>
+                  <th>Дата рождения</th>
+                  <th>Пасп. данные</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for c in users %}
+                        <tr>
+                            <th scope="row">{{ c.id }}</th>
+                            <td>{{ c.fam }}</td>
+                            <td>{{ c.name }}</td>
+                            <td>{{ c.otch }}</td>
+                            <td>{{ c.dater }}</td>
+                            <td>{{ c.passport }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Заявки</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>ФИО</th>
+                  <th>Описание</th>
+                  <th>Адрес доставки</th>
+                  <th>Телефон</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for m in request %}
+                        <tr>
+                            <th scope="row">{{ m.id }}</th>
+                            <td>{{ m.user.user_name }}</td>
+                            <td>{{ m.opis }}</td>
+                            <td>{{ m.adres }}</td>
+                            <td>{{ m.tele }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h2>Список продуктов</h2>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Наименование</th>
+                  <th>Количество</th>
+                  <th>Ед. измерения</th>
+                  <th>Стоимость</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for r in product %}
+                        <tr>
+                            <th scope="row">{{ r.id }}</th>
+                            <td>{{ r.naimen }}</td>
+                            <td>{{ r.kolich }}</td>
+                            <td>{{ r.edinic }}</td>
+                            <td>{{ r.cost }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+	</body>
+</html>
